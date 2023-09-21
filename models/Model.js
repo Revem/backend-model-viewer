@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize')
 const db = require('../db/conn')
 
 const User = require('./User')
-
+// Criação da tabela Model no banco de dados
 const Model = db.define('Model', {
   name: {
     type: DataTypes.STRING,

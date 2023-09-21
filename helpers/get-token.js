@@ -1,3 +1,5 @@
+
+// Função de receber token do usuário para verificações.
 const getToken = (req) => {
 
   const authHeader = req.headers.authorization

@@ -5,7 +5,7 @@ const ModelController = require('../controllers/ModelController')
 // middleware
 const verifyToken = require('../helpers/verify-token')
 const { modelUpload } = require('../helpers/glb-upload')
-
+//Rotas para criação e edição de modelos.
 router.post('/create', verifyToken, modelUpload.single('file'), ModelController.create)
 router.get('/getall', ModelController.getAll)
 router.get('/mymodels', verifyToken, ModelController.getAllUserModels)

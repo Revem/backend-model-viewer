@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken')
 
+// Função para criar token de usuário para realizar login.
 const createUserToken = async (user, req, res) => {
 
   //Criar Token

@@ -1,6 +1,7 @@
 const multer = require('multer')
 const path = require('path')
 
+// Middleware para baixar o arquivo glb enviado pelo frontend
 const modelStorage = multer.diskStorage({
   destination: function (req, file, cb) {
     let folder = "models"

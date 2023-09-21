@@ -4,7 +4,7 @@ const AuthController = require('../controllers/AuthController')
 
 // middleware
 const verifyToken = require('../helpers/verify-token')
-
+//Rotas de autenticação do usuário
 router.post('/login', AuthController.login)
 router.post('/register', AuthController.register)
 router.get('/checkuser', AuthController.checkUser)
