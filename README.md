@@ -6,11 +6,11 @@ Para executar a parte backend do projeto, siga estas etapas:
 
 1. Clone este repositório:
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/revem/backend-model-viewer.git
 ```
 2. Navegue até o diretório do backend:
 ```bash
-cd backend
+cd backend-model-viewer
 ```
 3. Instale as dependências do projeto:
 
