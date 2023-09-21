@@ -9,7 +9,7 @@ const getUserByToken = require('../helpers/get-user-by-token')
 
 module.exports = class AuthController {
 
-
+  // Registrar um novo usuário
   static async register(req, res) {
     const { name, email, password, confirmPassword } = req.body
 
@@ -56,7 +56,7 @@ module.exports = class AuthController {
       res.status(500).json({ message: `Ocorreu um erro: ${err}` })
     }
   }
-
+  // Função de Login
   static async login(req, res) {
     const { email, password } = req.body
     //Campo email necessário!
@@ -80,7 +80,7 @@ module.exports = class AuthController {
     }
     await createUserToken(user, req, res)
   }
-
+  // Função de checar usuário
   static async checkUser(req, res) {
     let currentUser
 
@@ -100,7 +100,7 @@ module.exports = class AuthController {
 
     res.status(200).send(currentUser)
   }
-
+  // Função para encontrar um usuário no banco de dados utilizando o ID
   static async getUserById(req, res) {
 
     const id = req.params.id
@@ -115,7 +115,7 @@ module.exports = class AuthController {
 
     res.status(200).json({ user })
   }
-
+  // Função para editar os dados de um usuário
   static async editUser(req, res) {
     const token = getToken(req)
     const user = getUserByToken(token)
@@ -127,7 +127,7 @@ module.exports = class AuthController {
       res.status(422).json({ message: 'O campo nome é obrigatório!' })
       return
     }
-
+    // Atualizar o nome do usuário
     user.name = name
 
     if (!email) {
@@ -142,7 +142,7 @@ module.exports = class AuthController {
       res.status(422).json({ message: 'E-mail já cadastrado, por gentileza, utilize outro e-mail.' })
       return
     }
-
+    // Atualizar o Email do usuário
     user.email = email
 
 
@@ -152,7 +152,7 @@ module.exports = class AuthController {
       })
       return
     }
-
+    res.status(200).json({ message: 'Usuário atualizado com sucesso!' })
 
   }
 }

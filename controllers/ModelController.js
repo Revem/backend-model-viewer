@@ -77,7 +77,6 @@ module.exports = class ModelController {
     try {
       const model = await Model.findOne({ where: { id: req.params.id } });
 
-
       // Verificando se o modelo foi encontrado
       if (!model) {
         return res.status(404).json({ message: 'Modelo não existe!' });
