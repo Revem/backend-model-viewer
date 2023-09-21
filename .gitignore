@@ -4,6 +4,8 @@ public/models
 
 # Logs
 
+package-lock.json
+
 logs
 _.log
 npm-debug.log_
