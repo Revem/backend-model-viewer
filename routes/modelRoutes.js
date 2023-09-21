@@ -10,7 +10,7 @@ router.post('/create', verifyToken, modelUpload.single('file'), ModelController.
 router.get('/getall', ModelController.getAll)
 router.get('/mymodels', verifyToken, ModelController.getAllUserModels)
 router.get('/:id', ModelController.getModelById)
-router.patch('/:id', verifyToken, ModelController.updateModel)
+router.patch('/:id', verifyToken, modelUpload.single('file'), ModelController.updateModel)
 router.delete('/:id', verifyToken, ModelController.removeModelById)
 
 module.exports = router
