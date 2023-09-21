@@ -100,14 +100,21 @@ module.exports = class ModelController {
   static async updateModel(req, res) {
     const id = req.params.id
     const { name } = req.body
+    const file = req.file
     const model = await Model.findOne({ where: { id } });
-    const updatedData = {}
     if (!model) {
       res.status(404).json({ message: 'Modelo não encontrado!' })
     }
 
+    if (file) {
+      const fileName = req.file.filename
+      model.glb = fileName
+    }
+
     const token = getToken(req);
     const user = await getUserByToken(token);
+    console.log("requisição abaixo:")
+    console.log(req.body)
 
     // Verificando se o modelo pertence ao usuário atual
     if (!model.UserId || model.UserId !== user.id) {
