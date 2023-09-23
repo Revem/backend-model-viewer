@@ -1,22 +1,22 @@
-const { DataTypes } = require('sequelize')
+const { DataTypes } = require('sequelize');
 
-const db = require('../db/conn')
+const db = require('../db/conn');
 
-const User = require('./User')
+const User = require('./User');
 // Criação da tabela Model no banco de dados
 const Model = db.define('Model', {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
-    require: true
+    require: true,
   },
   glb: {
     type: DataTypes.STRING,
-    require: true
-  }
-})
+    require: true,
+  },
+});
 
-Model.belongsTo(User)
-User.hasMany(Model)
+Model.belongsTo(User);
+User.hasMany(Model);
 
-module.exports = Model
+module.exports = Model;

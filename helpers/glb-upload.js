@@ -1,25 +1,25 @@
-const multer = require('multer')
-const path = require('path')
+const multer = require('multer');
+const path = require('path');
 
 // Middleware para baixar o arquivo glb enviado pelo frontend
 const modelStorage = multer.diskStorage({
   destination: function (req, file, cb) {
-    let folder = "models"
-    cb(null, `public/${folder}`)
+    let folder = "models";
+    cb(null, `public/${folder}`);
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname))
-  }
-})
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
 
 const modelUpload = multer({
   storage: modelStorage,
   fileFilter(req, file, cb) {
     if (!file.originalname.match(/\.(glb)$/)) {
-      return cb(new Error("Por gentileza, envie apenas modelos com extensão .glb!"))
-    }
-    cb(undefined, true)
-  }
-})
+      return cb(new Error("Por gentileza, envie apenas modelos com extensão .glb!"));
+    };
+    cb(undefined, true);
+  },
+});
 
-module.exports = { modelUpload }
+module.exports = { modelUpload };
