@@ -1,6 +1,6 @@
-const { DataTypes } = require('sequelize')
+const { DataTypes } = require('sequelize');
 
-const db = require('../db/conn')
+const db = require('../db/conn');
 // Criação da tabela User no banco de dados
 const User = db.define('User', {
   name: {
@@ -10,11 +10,12 @@ const User = db.define('User', {
   email: {
     type: DataTypes.STRING,
     require: true,
+    unique: true,
   },
   password: {
     type: DataTypes.STRING,
-    require: true
-  }
-})
+    require: true,
+  },
+});
 
-module.exports = User
+module.exports = User;
